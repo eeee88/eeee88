@@ -8,9 +8,7 @@ const switchLabel = document.querySelector(".switch label");
 const switchLabelText = switchLabel.querySelector("span:last-child");
 const collapsedClass = "collapsed";
 const lightModeClass = "light-mode";
-
-/*TOGGLE HEADER STATE*/
-collapseBtn.addEventListener("click", function () {
+/*TOGGLE HEADER STATE*/ collapseBtn.addEventListener("click", function () {
   body.classList.toggle(collapsedClass);
   this.getAttribute("aria-expanded") == "true"
     ? this.setAttribute("aria-expanded", "false")
@@ -19,9 +17,7 @@ collapseBtn.addEventListener("click", function () {
     ? this.setAttribute("aria-label", "expand menu")
     : this.setAttribute("aria-label", "collapse menu");
 });
-
-/*TOGGLE MOBILE MENU*/
-toggleMobileMenu.addEventListener("click", function () {
+/*TOGGLE MOBILE MENU*/ toggleMobileMenu.addEventListener("click", function () {
   body.classList.toggle("mob-menu-opened");
   this.getAttribute("aria-expanded") == "true"
     ? this.setAttribute("aria-expanded", "false")
@@ -30,9 +26,7 @@ toggleMobileMenu.addEventListener("click", function () {
     ? this.setAttribute("aria-label", "close menu")
     : this.setAttribute("aria-label", "open menu");
 });
-
-/*SHOW TOOLTIP ON MENU LINK HOVER*/
-for (const link of menuLinks) {
+/*SHOW TOOLTIP ON MENU LINK HOVER*/ for (const link of menuLinks) {
   link.addEventListener("mouseenter", function () {
     if (
       body.classList.contains(collapsedClass) &&
@@ -45,14 +39,11 @@ for (const link of menuLinks) {
     }
   });
 }
-
-/*TOGGLE LIGHT/DARK MODE*/
-if (localStorage.getItem("dark-mode") === "false") {
+/*TOGGLE LIGHT/DARK MODE*/ if (localStorage.getItem("dark-mode") === "false") {
   html.classList.add(lightModeClass);
   switchInput.checked = false;
   switchLabelText.textContent = "Light";
 }
-
 switchInput.addEventListener("input", function () {
   html.classList.toggle(lightModeClass);
   if (html.classList.contains(lightModeClass)) {
